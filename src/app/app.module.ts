@@ -12,6 +12,9 @@ import {LoginComponent} from './components/login.component';
 import {LoginService} from './services/login.service';
 import {NavBarComponent} from './components/nav-bar.component';
 import {routing} from './app.routing';
+import {JobListComponent} from './components/job-list.component';
+import {JobService} from './services/job.service';
+import {JobDetailComponent} from './components/job-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import {routing} from './app.routing';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    NavBarComponent
+    NavBarComponent,
+    JobListComponent,
+    JobDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,8 @@ import {routing} from './app.routing';
   ],
   providers: [
     RegisterService,
-    LoginService
+    LoginService,
+    JobService
   ],
   bootstrap: [AppComponent]
 })

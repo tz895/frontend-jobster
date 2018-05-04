@@ -1,0 +1,31 @@
+<div class='photo-list'>
+  <!-- <div *ngFor="#user of users"> -->
+  <div *ngFor="let job of jobs">
+    <div class="ui grid">
+
+      <div class='two wide column'>
+      </div>
+
+      <div class='fourteen wide column'>
+        <div class="ui raised segment">
+
+          <img src='data:image/png;base64,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'
+               class='ui image big centered' (click)="onSelect(job)" style="cursor: pointer">
+
+          <div class="ui center aligned grid">
+            <div class="column twelve wide">
+              <div class="ui grid">
+                <div class="four column row">
+                  <div class="left floated column left aligned">
+                    <strong>{{job.name}}</strong><br/>
+                    {{job.company.name}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
