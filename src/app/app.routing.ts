@@ -4,6 +4,7 @@ import {RegisterComponent} from './components/register.component';
 import {LoginComponent} from './components/login.component';
 import {ModuleWithProviders} from '@angular/core';
 import {JobListComponent} from './components/job-list.component';
+import {JobDetailComponent} from './components/job-detail.component';
 
 
 const appRoutes: Routes = [
@@ -27,6 +28,10 @@ const appRoutes: Routes = [
   {
     path: 'jobList',
     component: JobListComponent
+  },
+  {
+    path: 'jobDetail/:id',
+    component: JobDetailComponent
   },
 ];
 

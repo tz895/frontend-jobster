@@ -24,8 +24,9 @@ export class JobService {
     const headers = new HttpHeaders()
       .set('Authorization' , localStorage.getItem('authorization'));
 
-    return this.http.get(this.apiRootUrl + '/job/' + jobId , {headers: headers});
-  }
+    return this.http.get(this.apiRootUrl + '/job/' + jobId , {headers: headers})
+      .catch(this.defaultErrorHandler());
+}
 
   private defaultErrorHandler() {
     return (error: any) => {

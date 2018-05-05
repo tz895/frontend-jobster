@@ -15,6 +15,8 @@ import {routing} from './app.routing';
 import {JobListComponent} from './components/job-list.component';
 import {JobService} from './services/job.service';
 import {JobDetailComponent} from './components/job-detail.component';
+import {StudentRegisterComponent} from './components/student-register.component';
+import {CompanyRegisterComponent} from './components/company-register.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {JobDetailComponent} from './components/job-detail.component';
     LoginComponent,
     NavBarComponent,
     JobListComponent,
-    JobDetailComponent
+    JobDetailComponent,
+    StudentRegisterComponent,
+    CompanyRegisterComponent
   ],
   imports: [
     BrowserModule,

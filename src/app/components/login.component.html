@@ -1,4 +1,11 @@
 <div class="container">
+  <div class="ui buttons" >
+    <button class="ui button"  (click)="studentSelected()">Student</button>
+    <button class="ui button" (click)="companySelected()">Company</button>
+  </div>
+  <br>
+  <br>
+  <br>
   <form (ngSubmit)="onSubmit()" class="ui form" [hidden]="loginService.checkLogin()">
     <div class="field">
       <label for="username">Username</label>

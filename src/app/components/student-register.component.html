@@ -1,0 +1,70 @@
+<div class="container">
+  <form *ngIf="!registered" class="ui form" (ngSubmit)="onSubmit()" #registerForm = "ngForm">
+    <h2 class="ui dividing header">Register as Student</h2>
+    <div class="field">
+      <div class="two fields">
+
+        <div class="field">
+          <label for="username">Username</label>
+          <input type="text" name="userName"  id="username" placeholder="User Name" [(ngModel)]="newStudent.username" ngControl="userName" required>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" name="password"id="password" placeholder="Password" [(ngModel)]="newStudent.password" ngControl="password" required>
+        </div>
+      </div>
+    </div>
+    <label for="name">Your Name(ex.John Wang)</label>
+    <div class="field">
+      <input type="text" name="name"  id="name" placeholder="Name" [(ngModel)]="newStudent.name" ngControl="name" required>
+    </div>
+
+    <label for="email">Email</label>
+    <div class="field">
+      <input type="email" name="email"  id="email" placeholder="Eamil" [(ngModel)]="newStudent.studentEmail" ngControl="email" required>
+    </div>
+
+    <label for="university">University</label>
+    <div class="field">
+      <input type="text" name="university"  id="university" placeholder="University" [(ngModel)]="newStudent.university" ngControl="university" required>
+    </div>
+
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <label for="major">Major</label>
+          <input type="text" name="major"  id="major" placeholder="Major" [(ngModel)]="newStudent.major" ngControl="major" required>
+        </div>
+
+
+        <div class="field">
+          <label for="gpa">Gpa</label>
+          <input type="number" name="gpa"  id="gpa" placeholder="Gpa" [(ngModel)]="newStudent.gpa" ngControl="gpa" required>
+        </div>
+      </div>
+    </div>
+
+    <label for="resume">Resume</label>
+    <div class="field">
+      <textarea type="text" id="resume" name="resume" placeholder="Type your resume here" required></textarea>
+    </div>
+
+
+    <label for="access">Access</label>
+    <select class="ui dropdown" id="access" name="access" placeholder="Common" [(ngModel)]="newStudent.access" required>
+      <option value="Common">Common</option>
+      <option value="Restrict">Restrict</option>
+    </select>
+
+    <br>
+    <button type="submit" class="ui button left" [disabled]="!registerForm.form.valid" >Register</button>
+
+    <br>
+    <br>
+  </form>
+
+  <div *ngIf="registered">
+    <h1>Register Success!</h1>
+  </div>
+</div>

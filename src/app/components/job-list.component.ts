@@ -20,6 +20,6 @@ export class JobListComponent {
 
   onSelect(job: Job) {
     this.selectedJob = job;
-    this.router.navigate(['/image-detail', this.selectedJob.jobId]);
+    this.router.navigate(['/jobDetail', this.selectedJob.jobId]);
   }
 }
