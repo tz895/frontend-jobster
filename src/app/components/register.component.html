@@ -2,10 +2,22 @@
 
 
 <div class="container">
-  <div class="ui buttons" >
-    <button class="ui button" style="margin-left: 6em" (click)="studentSelected()">Student</button>
-    <button class="ui button" (click)="companySelected()">Company</button>
+  <!--<div class="ui buttons" >-->
+    <!--<button class="ui button" style="margin-left: 6em" (click)="studentSelected()">Student</button>-->
+    <!--<button class="ui button" (click)="companySelected()">Company</button>-->
+  <!--</div>-->
+  <div class="container">
+    <div class="ui left floated compact segment">
+      <div class="ui test toggle checkbox">
+        <input type="checkbox" (click)="toggle()">
+        <label *ngIf ="!studentRegister">Register as Company</label>
+        <label *ngIf ="studentRegister">Register as Student</label>
+      </div>
+    </div>
   </div>
+
+  <br>
+
   <student-register *ngIf="studentRegister"></student-register>
   <company-register *ngIf="!studentRegister"></company-register>
 </div>

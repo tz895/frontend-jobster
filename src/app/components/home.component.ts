@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {SidePanelComponent} from './side-panel.component';
+import {ControlService} from '../services/control.service';
 
 @Component({
   selector: 'home',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   // styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  constructor(private controlService: ControlService) {
+  }
 
 }

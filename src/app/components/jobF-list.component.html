@@ -1,0 +1,16 @@
+<div>
+  <h3>Forward Job from your friends</h3>
+  <hr>
+  <div *ngFor="let thissender of senders;let k = index">
+    <div class="ui relaxed divided list">
+
+      <div class="item">
+        <i class="large github middle aligned icon"></i>
+        <div class="content">
+          <a class="header" (click)="onSelect(jobs[k])">{{jobs[k].name}}</a>
+          <div class="description">A job forwarded from <a (click)="onSelectProfile(thissender)"><b>{{thissender.name}}</b></a> at {{myarray[k]}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

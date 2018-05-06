@@ -6,7 +6,7 @@ import {LoginService} from '../services/login.service';
   selector: 'nav-bar',
   templateUrl: './nav-bar.component.html'
 })
-export class NavBarComponent{
+export class NavBarComponent {
 
   myLocalStorage;
 

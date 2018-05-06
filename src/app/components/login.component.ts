@@ -20,6 +20,13 @@ export class LoginComponent {
     this.currentUserName = localStorage.getItem('currentUserName');
   }
 
+  toggle() {
+    if (this.student) {
+      this.student = false;
+    } else {
+      this.student = true;
+    }
+  }
   studentSelected() {
     this.student = true;
   }
@@ -40,7 +47,7 @@ export class LoginComponent {
               this.currentUserName = this.model.username;
               console.log(this.model.username);
               this.newStudent = data;
-              localStorage.setItem('Id', this.newStudent.studentId.toString())
+              localStorage.setItem('id', this.newStudent.studentId.toString())
               localStorage.setItem('currentUserName', this.newStudent.username);
               localStorage.setItem('type', 'student');
               this.model.username = '';
@@ -57,7 +64,7 @@ export class LoginComponent {
               this.currentUserName = this.model.username;
               console.log(this.model.username);
               this.newCompany = data;
-              localStorage.setItem('Id', this.newCompany.companyId.toString())
+              localStorage.setItem('id', this.newCompany.companyId.toString())
               localStorage.setItem('currentUserName', this.newCompany.username);
               localStorage.setItem('type', 'company');
               this.model.username = '';

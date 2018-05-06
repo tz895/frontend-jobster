@@ -3,6 +3,7 @@ import {Job} from '../models/job';
 import construct = Reflect.construct;
 import {JobService} from '../services/job.service';
 import {ActivatedRoute, Params} from '@angular/router';
+import {Student} from '../models/student';
 
 @Component({
   selector: 'job-detail',
@@ -20,6 +21,17 @@ export class JobDetailComponent {
     this.jobService.getJobById(this.jobId).subscribe(
       data => console.log(this.job = data),
       error => console.log(error)
+    );
+  }
+
+  applyJob() {
+    this.jobService.applyJob(this.jobId).subscribe(
+      data => {
+        alert('Job applied!');
+      },
+      error => {
+        alert('Already apply this Job!');
+      }
     );
   }
 }

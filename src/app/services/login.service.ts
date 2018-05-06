@@ -11,7 +11,7 @@ export class LoginService {
   sendCredential(model) {
     const tokenUrl1 = 'http://localhost:8080/login';
     const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json')
+      .set('Content-Type', 'application/json');
     return this.http.post(tokenUrl1, JSON.stringify(model), {headers: headers, observe: 'response'});
   }
 
@@ -38,15 +38,16 @@ export class LoginService {
 
 
   logout() {
-    localStorage.setItem('token', '');
+    localStorage.setItem('authorization', '');
     localStorage.setItem('currentUserName', '');
+    localStorage.setItem('id', '');
+    localStorage.setItem('type', '');
     alert('You just logged out.');
   }
 
   checkLogin() {
     if (localStorage.getItem('currentUserName') !== null && localStorage.getItem('currentUserName') !== '' &&
-localStorage.getItem('token') !== null && localStorage.getItem('token') !== '') {
-
+localStorage.getItem('authorization') !== null && localStorage.getItem('authorization') !== '') {
       return true;
     } else {
       return false;

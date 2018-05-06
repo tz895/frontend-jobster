@@ -1,0 +1,58 @@
+<div class="pusher">
+  <div class="ui vertical masthead segment">
+    <div class="ui text container">
+
+      <br>
+      <!--<div class="ui grid">-->
+        <!--<div class="left floated six wide column " style="cursor: pointer; color: gray;">-->
+          <!--<h1>{{student?.name}}</h1>-->
+          <!--<table>-->
+            <!--<tr>-->
+              <!--<th>Description</th>-->
+              <!--<th>Diploma</th>-->
+              <!--<th>DueTime</th>-->
+              <!--<th>CompanyName</th>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<td>{{student?.university}}</td>-->
+              <!--<td>{{student?.studentEmail}}</td>-->
+              <!--<td>{{student?.resume}}</td>-->
+              <!--<td>{{student?.gpa}}</td>-->
+            <!--</tr>-->
+
+          <!--</table>-->
+          <!--&lt;!&ndash;<i class="long arrow left icon"></i><span (click)="goBack()">Back</span>&ndash;&gt;-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <div class="ui card">
+        <div class="image">
+          <img src="https://cdn.vox-cdn.com/thumbor/DVN7eqE1o8HeBOP-jg15YHTsiLY=/0x0:640x427/1200x800/filters:focal(0x0:640x427)/cdn.vox-cdn.com/assets/1496753/stevejobs.jpg">
+        </div>
+        <div class="content">
+          <div class="header">{{student?.name}}</div>
+          <div class="meta">
+            <a>{{student?.university}}</a>
+          </div>
+          <div class="description">
+            {{student?.resume}}
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">
+            {{student?.studentEmail}}
+          </span>
+          <span>
+            <i class="user icon"></i>
+            {{student?.major}}
+          </span>
+        </div>
+      </div>
+
+      <br>
+      <button class="ui violet basic button" (click)="sendRequest()">Make a Friend</button>
+    </div>
+  </div>
+</div>
+
+

@@ -5,6 +5,7 @@ import {LoginComponent} from './components/login.component';
 import {ModuleWithProviders} from '@angular/core';
 import {JobListComponent} from './components/job-list.component';
 import {JobDetailComponent} from './components/job-detail.component';
+import {StudentDetailComponent} from './components/student-detail.component';
 
 
 const appRoutes: Routes = [
@@ -33,6 +34,10 @@ const appRoutes: Routes = [
     path: 'jobDetail/:id',
     component: JobDetailComponent
   },
+  {
+    path: 'studentDetail/:id',
+    component: StudentDetailComponent
+  }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

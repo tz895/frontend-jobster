@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -17,6 +16,13 @@ import {JobService} from './services/job.service';
 import {JobDetailComponent} from './components/job-detail.component';
 import {StudentRegisterComponent} from './components/student-register.component';
 import {CompanyRegisterComponent} from './components/company-register.component';
+import {SidePanelComponent} from './components/side-panel.component';
+import {AppliedJobsComponent} from './components/applied-jobs.component';
+import {ControlService} from './services/control.service';
+import {JobFComponent} from './components/jobF-list.component';
+import {StudentService} from './services/student.service';
+import {StudentDetailComponent} from './components/student-detail.component';
+import {NotificationComponent} from './components/notification.component';
 
 @NgModule({
   declarations: [
@@ -28,18 +34,25 @@ import {CompanyRegisterComponent} from './components/company-register.component'
     JobListComponent,
     JobDetailComponent,
     StudentRegisterComponent,
-    CompanyRegisterComponent
+    CompanyRegisterComponent,
+    SidePanelComponent,
+    AppliedJobsComponent,
+    JobFComponent,
+    StudentDetailComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    routing
+    routing,
   ],
   providers: [
     RegisterService,
     LoginService,
-    JobService
+    JobService,
+    ControlService,
+    StudentService
   ],
   bootstrap: [AppComponent]
 })

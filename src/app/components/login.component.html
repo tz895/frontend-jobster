@@ -1,7 +1,17 @@
 <div class="container">
-  <div class="ui buttons" >
-    <button class="ui button"  (click)="studentSelected()">Student</button>
-    <button class="ui button" (click)="companySelected()">Company</button>
+  <!--<div class="ui buttons" [hidden]="loginService.checkLogin()">-->
+    <!--<button class="ui button"  (click)="studentSelected()">Student</button>-->
+    <!--<button class="ui button" (click)="companySelected()">Company</button>-->
+  <!--</div>-->
+  <br>
+  <div class="column">
+    <div class="ui left floated compact segment">
+      <div class="ui test toggle checkbox">
+        <input type="checkbox" (click)="toggle()">
+        <label *ngIf ="!student">Login as Company</label>
+        <label *ngIf ="student">Login as Student</label>
+      </div>
+    </div>
   </div>
   <br>
   <br>

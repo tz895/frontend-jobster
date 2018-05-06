@@ -12,6 +12,14 @@ export class RegisterComponent {
   studentRegister = true;
   constructor() {}
 
+  toggle() {
+    if (this.studentRegister) {
+      this.studentRegister = false;
+    } else {
+      this.studentRegister = true;
+    }
+  }
+
   studentSelected() {
       this.studentRegister = true;
   }
