@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {Job} from '../models/job';
 import {Observable} from 'rxjs/Observable';
 import {Student} from '../models/student';
+import {Company} from '../models/company';
 
 @Injectable()
 export class StudentService {
@@ -30,13 +31,44 @@ export class StudentService {
         .catch(this.defaultErrorHandler());
     }
 
-  getFriendList(): Observable<Student[]> {
-    console.log(localStorage.getItem('authorization'));
+
+  getStudents(): Observable<Student[]> {
     const headers = new HttpHeaders()
-      .set('Authorization', localStorage.getItem('authorization'));
-    return this.http.get(this.apiRootUrl + '/jobs', {headers: headers})
+      .set('Authorization' , localStorage.getItem('authorization'));
+    return this.http.get(this.apiRootUrl + '/students', {headers: headers})
       .catch(this.defaultErrorHandler());
   }
+
+  checkRequest(studentId: number) {
+    const headers = new HttpHeaders()
+      .set('Authorization' , localStorage.getItem('authorization'));
+    return this.http.get(this.apiRootUrl + '/friendrequest/sender/' + localStorage.getItem('id') +
+      '/receiver/' + studentId ,  {headers: headers})
+      .catch(this.defaultErrorHandler());
+  }
+
+  checkIsFriend(studentId: number) {
+    const headers = new HttpHeaders()
+      .set('Authorization' , localStorage.getItem('authorization'));
+    return this.http.get(this.apiRootUrl + '/friendrelation/student/' + localStorage.getItem('id') +
+      '/friend/' + studentId ,  {headers: headers})
+      .catch(this.defaultErrorHandler());
+  }
+
+  getRequests() {
+    const headers = new HttpHeaders()
+      .set('Authorization' , localStorage.getItem('authorization'));
+    return this.http.get(this.apiRootUrl + '/friendrequests/receiver/' + localStorage.getItem('id') ,  {headers: headers})
+      .catch(this.defaultErrorHandler());
+  }
+
+  getFriends() {
+    const headers = new HttpHeaders()
+      .set('Authorization' , localStorage.getItem('authorization'));
+    return this.http.get(this.apiRootUrl + '/friendrelation/student/' + localStorage.getItem('id') ,  {headers: headers})
+      .catch(this.defaultErrorHandler());
+  }
+
 
   private defaultErrorHandler() {
     return (error: any) => {

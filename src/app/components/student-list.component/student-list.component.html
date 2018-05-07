@@ -1,0 +1,37 @@
+<div class="container photo-list">
+  <table class="ui very basic collapsing celled table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>University</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let student of students" (click)="onSelect(student)" style="cursor: pointer">
+      <td>
+        <h4 class="ui image header">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL78KwJCsMv9GEoB_3YGKQvO_ky9s8IyKxoAtrpCP1OaAWXNHk" class="ui mini rounded image">
+          <div class="content">
+            {{student.name}}
+            <div class="sub header">
+              {{student.major}}
+            </div>
+          </div>
+        </h4>
+      </td>
+      <td class="center aligned">
+        {{student.university}}
+      </td>
+      <td class="center aligned">
+        {{student.studentEmail}}
+      </td>
+    </tr>
+
+
+    </tbody>
+  </table>
+
+</div>
+

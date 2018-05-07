@@ -1,0 +1,80 @@
+<!--<div class='photo-list'>-->
+  <!--&lt;!&ndash; <div *ngFor="#user of users"> &ndash;&gt;-->
+  <!--<div *ngFor="let job of jobs">-->
+    <!--<div class="ui grid">-->
+
+      <!--<div class='two wide column'>-->
+      <!--</div>-->
+
+      <!--<div class='fourteen wide column'>-->
+        <!--<div class="ui raised segment">-->
+
+          <!--<div class="ui three column grid">-->
+            <!--<div class="three column row">-->
+              <!--<div class="fourteen wide column" (click)="onSelect(job)" style="cursor: pointer"><h2>{{job.name}}</h2></div>-->
+            <!--</div>-->
+            <!--<div class="column">Location</div>-->
+            <!--<div class="column">Due Date</div>-->
+            <!--<div class="column">Status</div>-->
+
+            <!--<div class="column">{{job.location}}</div>-->
+            <!--<div class="column">{{job.due_time}}</div>-->
+            <!--<div class="column">{{job.status}}</div>-->
+          <!--</div>-->
+
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+     <!--</div>-->
+  <!--</div>-->
+
+
+<div class="container photo-list">
+  <table class="ui very basic collapsing celled table">
+    <thead>
+    <tr class="center aligned">
+      <th>Job Name</th>
+      <th>Location</th>
+      <th>Title</th>
+      <th>Post time</th>
+      <th>Due time</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let job of jobs" (click)="onSelect(job)" style="cursor: pointer">
+      <td>
+        <h4 class="ui image header">
+          <img src="https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-35-512.png" class="ui mini rounded image">
+          <div class="content">
+            {{job.name}}
+            <div class="sub header">
+              {{job.company.name}}
+            </div>
+          </div>
+        </h4>
+      </td>
+      <td>
+        {{job.location}}
+      </td>
+      <td>
+        {{job.title}}
+      </td>
+      <td>
+        {{job.post_time}}
+      </td>
+      <td>
+        {{job.due_time}}
+      </td>
+      <td>
+        {{job.status}}
+      </td>
+    </tr>
+
+
+    </tbody>
+  </table>
+
+</div>
+

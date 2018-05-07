@@ -7,7 +7,7 @@ export class ControlService {
 
   constructor() {}
 
-  allJobs() {
+  subscribedComapanies() {
     this.sidePanelControl = '1';
     console.log(this.sidePanelControl);
   }
@@ -17,12 +17,17 @@ export class ControlService {
     console.log(this.sidePanelControl);
   }
 
-  Noti() {
+  friends() {
     this.sidePanelControl = '3';
+    console.log(this.sidePanelControl);
+  }
+
+  Noti() {
+    this.sidePanelControl = '4';
   }
 
   Mess() {
-    this.sidePanelControl = '4';
+    this.sidePanelControl = '5';
   }
 
   getControl() {

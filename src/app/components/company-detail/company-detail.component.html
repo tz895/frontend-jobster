@@ -1,0 +1,63 @@
+<div class="container">
+  <h1 class="ui image header">
+    <img src="https://www.shareicon.net/download/2017/07/13/888376_office_512x512.png" class="ui mini rounded image">
+    <div class="content">
+      {{company.name}}
+      <div class="sub header">
+        {{company.industry}}
+      </div>
+    </div>
+  </h1>
+  <br>
+  <button class="ui violet basic button" (click)="subCompany()" *ngIf="ifSub">Subscribe</button>
+  <button class="ui violet basic button" (click)="unsubCompany()" *ngIf="!ifSub">Unsubscribe</button>
+</div>
+<div class="container photo-list">
+  <h2>Posted jobs</h2>
+  <table class="ui very basic collapsing celled table">
+    <thead>
+    <tr class="center aligned">
+      <th>Job Name</th>
+      <th>Location</th>
+      <th>Title</th>
+      <th>Post time</th>
+      <th>Due time</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let job of jobs" (click)="onSelect(job)" style="cursor: pointer">
+      <td>
+        <h4 class="ui image header">
+          <img src="https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-35-512.png" class="ui mini rounded image">
+          <div class="content">
+            {{job.name}}
+            <div class="sub header">
+              {{job.company.name}}
+            </div>
+          </div>
+        </h4>
+      </td>
+      <td class="center aligned">
+        {{job.location}}
+      </td>
+      <td class="center aligned">
+        {{job.title}}
+      </td>
+      <td class="center aligned">
+        {{job.post_time}}
+      </td>
+      <td class="center aligned">
+        {{job.due_time}}
+      </td>
+      <td class="center aligned">
+        {{job.status}}
+      </td>
+    </tr>
+
+
+    </tbody>
+  </table>
+
+</div>

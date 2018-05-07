@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {Job} from '../models/job';
 import 'rxjs/add/operator/catch';
 import {JobApply} from '../models/jobApply';
+import {Company} from '../models/company';
 
 
 @Injectable()
@@ -62,18 +63,34 @@ export class JobService {
       .catch(this.defaultErrorHandler());
   }
 
-  getCompanySubs() {
-    console.log('this is get company subs');
+  checkApply(jobId: number) {
     const headers = new HttpHeaders()
       .set('Authorization' , localStorage.getItem('authorization'));
-    return this.http.get(this.apiRootUrl + '/companysubs/student/' + localStorage.getItem('id'),  {headers: headers})
+    return this.http.get(this.apiRootUrl + '/jobapply/student/' + localStorage.getItem('id') + '/job/' + jobId,  {headers: headers})
       .catch(this.defaultErrorHandler());
   }
 
-  getFriendRequests() {
-    console.log('this is get friend request');
+  // getCompanySubs() {
+  //   console.log('this is get company subs');
+  //   const headers = new HttpHeaders()
+  //     .set('Authorization' , localStorage.getItem('authorization'));
+  //   return this.http.get(this.apiRootUrl + '/companysubs/student/' + localStorage.getItem('id'),  {headers: headers})
+  //     .catch(this.defaultErrorHandler());
+  // }
+  //
+  // getFriendRequests() {
+  //   console.log('this is get friend request');
+  //   const headers = new HttpHeaders()
+  //     .set('Authorization' , localStorage.getItem('authorization'));
+  // }
+  //
+
+
+  getJobByCompany (companyId: number): Observable<Job[]> {
     const headers = new HttpHeaders()
       .set('Authorization' , localStorage.getItem('authorization'));
+    return this.http.get(this.apiRootUrl + '/job/company/' + companyId, {headers: headers})
+      .catch(this.defaultErrorHandler());
   }
 
   private defaultErrorHandler() {

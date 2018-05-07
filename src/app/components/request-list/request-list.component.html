@@ -1,0 +1,21 @@
+<div>
+  <h3>Friend Requests</h3>
+  <hr>
+  <div *ngFor="let thissender of senders;let k = index">
+    <div class="ui relaxed divided list">
+
+      <div class="item">
+        <i class="large github middle aligned icon"></i>
+        <div class="content">
+
+          <a class="header" (click)="onSelectProfile(thissender)">{{sender.name}}</a>
+          <div class="description">
+            wanna become your friend! Sent at {{myarray[k]}}
+          </div>
+
+        </div>
+        <button class="ui green basic mini right floated button ">{{status[k]}}</button>
+      </div>
+    </div>
+  </div>
+</div>

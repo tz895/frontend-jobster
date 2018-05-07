@@ -1,0 +1,32 @@
+<div class="container photo-list">
+  <table class="ui very basic collapsing celled table">
+    <thead>
+    <tr>
+      <th>Company Name</th>
+      <th>Location</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let company of companies" (click)="onSelect(company)" style="cursor: pointer">
+        <td>
+          <h4 class="ui image header">
+            <img src="https://www.shareicon.net/download/2017/07/13/888376_office_512x512.png" class="ui mini rounded image">
+            <div class="content">
+              {{company.name}}
+              <div class="sub header">
+                {{company.industry}}
+              </div>
+            </div>
+          </h4>
+        </td>
+        <td class="center aligned">
+          {{company.location}}
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>
+
+</div>

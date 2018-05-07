@@ -1,0 +1,15 @@
+<h3>Your friends</h3>
+<hr>
+  <div class="ui items">
+    <div class="item" *ngFor="let friend of students">
+      <a class="ui tiny image">
+        <img src="https://semantic-ui.com/images/avatar/large/jenny.jpg">
+      </a>
+      <div class="content">
+        <a class="header" (click)="onSelect(friend)">{{friend.name}}</a>
+        <div class="description">
+          <p>Email: {{friend.studentEmail}}  Major: {{friend.major}}  University: {{friend.university}}</p>
+        </div>
+      </div>
+    </div>
+  </div>

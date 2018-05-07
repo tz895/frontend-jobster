@@ -1,0 +1,22 @@
+<div class="container" *ngIf="type === 'student'">
+  <div class="ui grid">
+    <div class='twelve wide column' *ngIf="controlService.sidePanelControl === '1'">
+      <sub-list></sub-list>
+    </div>
+    <div class='twelve wide column' *ngIf="controlService.sidePanelControl === '2'">
+      <applied-jobs></applied-jobs>
+    </div>
+    <div class='twelve wide column' *ngIf="controlService.sidePanelControl === '3'">
+      <friend-list></friend-list>
+    </div>
+    <div class='twelve wide column' *ngIf="controlService.sidePanelControl === '4'">
+      <notification></notification>
+    </div>
+    <div class='twelve wide column' *ngIf="controlService.sidePanelControl === '5'">
+
+    </div>
+    <div class='four wide column'>
+      <side-panel></side-panel>
+    </div>
+  </div>
+</div>
