@@ -1,5 +1,5 @@
 <div>
-  <h3>Forward Job from your friends</h3>
+  <h3>Forward Jobs from your friends</h3>
   <hr>
   <div *ngFor="let thissender of senders;let k = index">
     <div class="ui relaxed divided list">
@@ -13,7 +13,8 @@
           </div>
 
         </div>
-        <button class="ui olive basic mini right floated button ">{{status[k]}}</button>
+        <button class="ui green basic mini right floated button " *ngIf="status[k] !== 'Processing'"><i class="calendar check icon"></i></button>
+        <button class="ui yellow basic mini right floated button " *ngIf="status[k] === 'Processing'" (click)="comfirmForward(thissender.studentId,jobs[k].jobId)" >Confirm</button>
       </div>
     </div>
   </div>

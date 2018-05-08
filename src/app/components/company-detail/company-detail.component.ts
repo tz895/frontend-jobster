@@ -17,8 +17,14 @@ export class CompanyDetailComponent {
   jobs: Job[];
   selectedJob: Job;
   ifSub: boolean;
+  isStudent: boolean;
 
   constructor ( private companyService: CompanyService, private jobService: JobService, private route: ActivatedRoute, private router: Router) {
+    if (localStorage.getItem('type') === 'student') {
+      this.isStudent = true;
+    } else {
+      this.isStudent = false;
+    }
     this.route.params.forEach((params: Params) => {
       this.companyId = Number.parseInt(params['id']);
     });

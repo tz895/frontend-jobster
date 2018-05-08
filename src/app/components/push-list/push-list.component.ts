@@ -1,34 +1,30 @@
 import {Component} from '@angular/core';
 import {JobService} from '../../services/job.service';
 import {Router} from '@angular/router';
-import {Student} from '../../models/student';
 import {Job} from '../../models/job';
+import {Company} from '../../models/company';
 
 
 @Component({
-  selector: 'jobF-list',
-  templateUrl: './jobF-list.component.html'
+  selector: 'push-list',
+  templateUrl: './push-list.component.html'
 })
-export class JobFComponent {
+export class PushListComponent {
   job: Job;
   jobs: Job[] = [];
-  senders: Student[] = [];
-  sender: Student;
+  company: Company;
   myarray: String[] = [];
   status: String[] = [];
   selectedJob: Job;
-  selectedStudent: Student;
+  selectedCompany: Company;
 
   constructor(private jobService: JobService, private router: Router) {
-    this.jobService.getForwardJobs().subscribe(
+    this.jobService.getPushJobs().subscribe(
       data => {
         data.forEach(element => {
           this.job = element.pk.job;
-          this.sender = element.pk.sender;
           this.jobs.push(this.job);
-          this.senders.push(this.sender);
-          console.log(element.forward_time);
-          this.myarray.push(element.forward_time);
+          this.myarray.push(element.push_time);
           this.status.push(element.status);
         });
       },
@@ -40,15 +36,15 @@ export class JobFComponent {
     this.router.navigate(['/jobDetail', this.selectedJob.jobId]);
   }
 
-  onSelectProfile(student: Student) {
-    this.selectedStudent = student;
-    this.router.navigate(['/studentDetail', this.selectedStudent.studentId]);
+  onSelectComapny(company: Company) {
+    this.selectedCompany = company;
+    this.router.navigate(['/companyDetail', this.selectedCompany.companyId]);
   }
 
-  comfirmForward(studentId: number, jobId: number) {
-    this.jobService.comfirmForward(studentId, jobId).subscribe(
+  requestRes(jobId: number, reps: number) {
+    this.jobService.requestRes(jobId, reps).subscribe(
       data => {
-        this.jobService.getForwardJobs().subscribe(
+        this.jobService.getPushJobs().subscribe(
           res => {
             res.forEach(element => {
               this.status = [];
@@ -58,7 +54,7 @@ export class JobFComponent {
           error => console.log(error)
         );
       },
-      error => {}
+      error => console.log(error)
     );
   }
 }

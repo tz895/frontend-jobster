@@ -30,8 +30,8 @@
       </div>
 
       <br>
-      <button class="ui violet basic button" (click)="sendRequest()" *ngIf="!isYourProfile && isFriend && isRequestSending">Make a Friend</button>
-      <button class="ui violet basic button" *ngIf="!isYourProfile && isFriend && !isRequestSending">Processing</button>
+      <button class="ui violet basic button" (click)="sendRequest()" *ngIf="isStudent && !isYourProfile && isFriend && isRequestSending">Make a Friend</button>
+      <button class="ui violet basic button" *ngIf="isStudent && !isYourProfile && isFriend && !isRequestSending">Processing</button>
     </div>
   </div>
 </div>

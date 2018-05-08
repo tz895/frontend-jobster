@@ -20,3 +20,21 @@
     </div>
   </div>
 </div>
+
+<div class="container" *ngIf="type === 'company'">
+  <div class="ui grid">
+    <div class='twelve wide column' *ngIf="controlService.sidePanelControl === '6'">
+      <posted-jobs></posted-jobs>
+    </div>
+    <div class='twelve wide column' *ngIf="controlService.sidePanelControl === '7'">
+      <post-job></post-job>
+    </div>
+    <div class='twelve wide column' *ngIf="controlService.sidePanelControl === '8'">
+      <search-candidate></search-candidate>
+    </div>
+    <div class='four wide column'>
+      <company-panel ></company-panel>
+    </div>
+</div>
+</div>
+

@@ -69,6 +69,14 @@ export class StudentService {
       .catch(this.defaultErrorHandler());
   }
 
+  requestRes(studentId: number, reps: number) {
+    const headers = new HttpHeaders()
+      .set('Authorization' , localStorage.getItem('authorization'));
+    return this.http.put(this.apiRootUrl + '/friendrequest/sender/' + studentId + '/receiver/' + localStorage.getItem('id')
+      + '/status/' + reps ,  123 , {headers: headers})
+      .catch(this.defaultErrorHandler());
+  }
+
 
   private defaultErrorHandler() {
     return (error: any) => {

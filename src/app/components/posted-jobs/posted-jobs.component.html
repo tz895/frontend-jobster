@@ -1,0 +1,21 @@
+
+
+<h3>Your posted jobs</h3>
+<hr>
+<div class="ui items">
+  <div class="item" *ngFor="let job of jobs">
+    <a class="ui tiny image">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVtKxmSgoUCL90aPqEMwpaf5dz1pTvhZwZQCzfc2jojw-UIZSxKQ">
+    </a>
+    <div class="content">
+      <a class="header" (click)="onSelect(job)" style="cursor: pointer">{{job.name}}</a>
+      <div class="description">
+        <p>Comapny:  {{job.company.name}}|  Location:  {{job.location}} | Status:  {{job.status}}</p>
+      </div>
+
+      <button class="ui red basic mini right floated button " (click)="delete(job.jobId)">Delete</button>
+      <button class="ui yellow basic mini right floated button ">Edit</button>
+    </div>
+  </div>
+</div>
+

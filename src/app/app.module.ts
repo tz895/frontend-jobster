@@ -29,6 +29,11 @@ import {StudentListComponent} from './components/student-list.component/student-
 import {RequestListComponent} from './components/request-list/request-list.component';
 import {FriendListComponent} from './components/friend-list/friend-list.component';
 import {SubListComponent} from './components/sub-list/sub-list.component';
+import {CompanyPanelComponent} from './components/company-panel/company-panel.component';
+import {PostJobComponent} from './components/post-job/post-job.component';
+import {PostedJobsComponent} from './components/posted-jobs/posted-jobs.component';
+import {SearchCandidateComponent} from './components/search-candidate/search-candidate.component';
+import {PushListComponent} from './components/push-list/push-list.component';
 
 
 
@@ -53,7 +58,12 @@ import {SubListComponent} from './components/sub-list/sub-list.component';
     StudentListComponent,
     RequestListComponent,
     FriendListComponent,
-    SubListComponent
+    SubListComponent,
+    CompanyPanelComponent,
+    PostJobComponent,
+    PostedJobsComponent,
+    SearchCandidateComponent,
+    PushListComponent
   ],
   imports: [
     BrowserModule,

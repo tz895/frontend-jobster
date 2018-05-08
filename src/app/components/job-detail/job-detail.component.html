@@ -8,28 +8,51 @@
       </div>
       <br>
       <div class="ui grid">
-        <div class="left floated six wide column " style="cursor: pointer; color: gray;">
-          <h1>{{job?.name}}</h1>
-          <table>
-            <tr>
-              <th>Description</th>
-              <th>Diploma</th>
-              <th>DueTime</th>
-              <th>CompanyName</th>
-            </tr>
-            <tr>
-              <td>{{job?.description}}</td>
-              <td>{{job?.diploma}}</td>
-              <td>{{job?.due_time}}</td>
-              <td>{{job?.company.name}}</td>
-            </tr>
+        <div class="left floated ten wide column " style="color: black;">
 
-          </table>
+          <h2><b>Job Name: </b>{{job?.name}}</h2>
+
+
+          <p><b>Location: </b>{{job?.location}}</p>
+
+
+          <p><b>Title: </b>{{job?.title}}</p>
+
+
+          <p><b>Salary: </b>{{job?.salary}}</p>
+
+
+          <p><b>Diploma Requirement: </b>{{job?.diploma}}</p>
+
+
+          <p><b>Major Requirement: </b>{{job?.major}}</p>
+
+
+          <p><b>Job Description: </b>{{job?.description}}</p>
+
+
+          <p><b>Post Time: </b>{{job?.post_time}}</p>
+
+
+          <p><b>Due Time: </b>{{job?.due_time}}</p>
+
+
+          <p><b>Status: </b>{{job?.status}}</p>
           <!--<i class="long arrow left icon"></i><span (click)="goBack()">Back</span>-->
+        </div>
+        <div class="left floated six wide column " style="color: black;" *ngIf="isStudent">
+          <form class="form" (ngSubmit)="forwardJob()" #registerForm = "ngForm">
+            <label for="job">Forward to your friend:</label>
+            <select class="ui dropdown" name="job" id="job" [(ngModel)]="thisStudent">
+              <option value="{{student.studentId}}"  *ngFor="let student of students">{{student.name}}</option>
+            </select>
+            <hr>
+            <button type="submit" class="ui button left floated brown basic " >Forward</button>
+          </form>
         </div>
       </div>
       <br>
-      <button class="ui violet basic button" (click)="applyJob()" *ngIf="isApplied">Apply</button>
+      <button class="ui violet basic button" (click)="applyJob()" *ngIf="isStudent && isApplied">Apply</button>
       <button class="ui violet basic button" *ngIf="!isApplied">Applied...</button>
     </div>
   </div>

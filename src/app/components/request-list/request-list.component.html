@@ -14,7 +14,11 @@
           </div>
 
         </div>
-        <button class="ui green basic mini right floated button ">{{status[k]}}</button>
+        <button class="ui green basic mini right floated button " *ngIf="status[k] === 'Accepted'"><i class="calendar check icon"></i></button>
+        <button class="ui red basic mini right floated button " *ngIf="status[k] === 'Refused'"><i class="user times icon"></i></button>
+        <button class="ui red basic mini right floated button" *ngIf="status[k] === 'Processing'" (click)="requestRes(thissender.studentId,-1)" >Refuse</button>
+        <button class="ui blue basic mini right floated button" *ngIf="status[k] === 'Processing'" (click)="requestRes(thissender.studentId,1)">Accept</button>
+
       </div>
     </div>
   </div>

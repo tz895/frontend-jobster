@@ -35,4 +35,21 @@ export class RequestListComponent {
     this.selectedStudent = student;
     this.router.navigate(['/studentDetail', this.selectedStudent.studentId]);
   }
+
+  requestRes(studentId: number, reps: number) {
+    this.studentService.requestRes(studentId, reps).subscribe(
+      data => {
+        this.studentService.getRequests().subscribe(
+          res => {
+            res.forEach(element => {
+              this.status = [];
+              this.status.push(element.status);
+            });
+          },
+          error => console.log(error)
+        );
+      },
+      error => console.log(error)
+    );
+  }
 }

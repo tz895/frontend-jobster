@@ -10,7 +10,7 @@ export class Job {
   public diploma: string;
   public major: string;
   public description: string;
-  public post_time: Date;
-  public due_time: Date;
+  public post_time: string;
+  public due_time: string;
   public status: string;
 }

@@ -2,15 +2,15 @@
   <h1 class="ui image header">
     <img src="https://www.shareicon.net/download/2017/07/13/888376_office_512x512.png" class="ui mini rounded image">
     <div class="content">
-      {{company.name}}
+      {{company?.name}}
       <div class="sub header">
-        {{company.industry}}
+        {{company?.industry}}
       </div>
     </div>
   </h1>
   <br>
-  <button class="ui violet basic button" (click)="subCompany()" *ngIf="ifSub">Subscribe</button>
-  <button class="ui violet basic button" (click)="unsubCompany()" *ngIf="!ifSub">Unsubscribe</button>
+  <button class="ui violet basic button" (click)="subCompany()" *ngIf="isStudent && ifSub">Subscribe</button>
+  <button class="ui violet basic button" (click)="unsubCompany()" *ngIf="isStudent && !ifSub">Unsubscribe</button>
 </div>
 <div class="container photo-list">
   <h2>Posted jobs</h2>
@@ -32,27 +32,27 @@
         <h4 class="ui image header">
           <img src="https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-35-512.png" class="ui mini rounded image">
           <div class="content">
-            {{job.name}}
+            {{job?.name}}
             <div class="sub header">
-              {{job.company.name}}
+              {{job?.company.name}}
             </div>
           </div>
         </h4>
       </td>
       <td class="center aligned">
-        {{job.location}}
+        {{job?.location}}
       </td>
       <td class="center aligned">
-        {{job.title}}
+        {{job?.title}}
       </td>
       <td class="center aligned">
-        {{job.post_time}}
+        {{job?.post_time}}
       </td>
       <td class="center aligned">
-        {{job.due_time}}
+        {{job?.due_time}}
       </td>
       <td class="center aligned">
-        {{job.status}}
+        {{job?.status}}
       </td>
     </tr>
 

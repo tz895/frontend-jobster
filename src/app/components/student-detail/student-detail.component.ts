@@ -15,8 +15,14 @@ export class StudentDetailComponent {
   isFriend: boolean;
   isRequestSending: boolean;
   isYourProfile = false;
+  isStudent: boolean
 
   constructor ( private studentServic: StudentService, private route: ActivatedRoute) {
+    if (localStorage.getItem('type') === 'student') {
+      this.isStudent = true;
+    } else {
+      this.isStudent = false;
+    }
     this.route.params.forEach((params: Params) => {
       this.studentId = Number.parseInt(params['id']);
     });

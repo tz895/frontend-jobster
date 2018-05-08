@@ -7,7 +7,9 @@ import {ControlService} from '../../services/control.service';
 })
 export class SidePanelComponent {
 
-  constructor(private controlService: ControlService) {}
+  constructor(private controlService: ControlService) {
+    this.controlService.subscribedComapanies();
+  }
 
   applyJobs() {
     this.controlService.applyJobs();

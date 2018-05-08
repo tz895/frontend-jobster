@@ -1,0 +1,69 @@
+<div *ngIf="!pushed">
+  <form class="ui form" (ngSubmit)="onSearch()" #registerForm = "ngForm">
+    <div class="field">
+      <div class="four fields">
+
+        <div class="field">
+          <label for="university">University</label>
+          <input type="text" name="university"  id="university" placeholder="University" [(ngModel)]="model.university" ngControl="university" >
+        </div>
+
+        <div class="field">
+          <label for="major">Major</label>
+          <input type="text" name="major"id="major" placeholder="Major" [(ngModel)]="model.major" ngControl="major" >
+        </div>
+
+        <div class="field">
+          <label for="gpa">Minimum GPA</label>
+          <input type="number" name="gpa"  id="gpa" placeholder="Minimum GPA" [(ngModel)]="model.gpa" ngControl="gpa" >
+        </div>
+
+        <div class="field">
+          <label for="keyword">Resume Keyword</label>
+          <input type="text" name="keyword"  id="keyword" placeholder="Resume Keyword" [(ngModel)]="model.keyword" ngControl="keyword" >
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="ui button right floated purple basic "  >Search</button>
+  </form>
+
+  <br>
+
+  <div>
+    <h3>Qualified Candidates</h3>
+    <hr>
+    <div class="ui items">
+      <div class="item" *ngFor="let friend of qualifiedCandidate">
+        <a class="ui tiny image">
+          <img src="https://semantic-ui.com/images/avatar/large/jenny.jpg">
+        </a>
+        <div class="content">
+          <a class="header" (click)="onSelect(friend)">{{friend.name}}</a>
+          <div class="description">
+            <p>Email: {{friend.studentEmail}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <form class="form" (ngSubmit)="pushJob()" #registerForm = "ngForm">
+    <label for="job">Job:</label>
+    <select class="ui dropdown" name="job" id="job" [(ngModel)]="thisJob">
+      <option value="{{job.jobId}}"  *ngFor="let job of jobs">{{job.name}}</option>
+    </select>
+
+    <button type="submit" class="ui button right floated black basic " >Push</button>
+  </form>
+</div>
+
+<div *ngIf="pushed">
+  <div class="ui success message">
+    <div class="header">Post Completed</div>
+    <p>You've posted a new job!</p>
+  </div>
+</div>
+

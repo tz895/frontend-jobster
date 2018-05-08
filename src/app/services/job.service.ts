@@ -5,6 +5,7 @@ import {Job} from '../models/job';
 import 'rxjs/add/operator/catch';
 import {JobApply} from '../models/jobApply';
 import {Company} from '../models/company';
+import {Student} from '../models/student';
 
 
 @Injectable()
@@ -70,27 +71,60 @@ export class JobService {
       .catch(this.defaultErrorHandler());
   }
 
-  // getCompanySubs() {
-  //   console.log('this is get company subs');
-  //   const headers = new HttpHeaders()
-  //     .set('Authorization' , localStorage.getItem('authorization'));
-  //   return this.http.get(this.apiRootUrl + '/companysubs/student/' + localStorage.getItem('id'),  {headers: headers})
-  //     .catch(this.defaultErrorHandler());
-  // }
-  //
-  // getFriendRequests() {
-  //   console.log('this is get friend request');
-  //   const headers = new HttpHeaders()
-  //     .set('Authorization' , localStorage.getItem('authorization'));
-  // }
-  //
-
 
   getJobByCompany (companyId: number): Observable<Job[]> {
     const headers = new HttpHeaders()
       .set('Authorization' , localStorage.getItem('authorization'));
     return this.http.get(this.apiRootUrl + '/job/company/' + companyId, {headers: headers})
       .catch(this.defaultErrorHandler());
+  }
+
+  postJob(job: Job) {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json').append('Authorization' , localStorage.getItem('authorization'));
+    return this.http.post(this.apiRootUrl + '/job', JSON.stringify(job), {headers: headers});
+  }
+
+  getPostedJobs(): Observable<Job[]>  {
+    const headers = new HttpHeaders()
+      .set('Authorization' , localStorage.getItem('authorization'));
+    return this.http.get(this.apiRootUrl + '/job/company/' + localStorage.getItem('id'), {headers: headers})
+      .catch(this.defaultErrorHandler());
+  }
+
+  deleteJob(jobId: number) {
+    const headers = new HttpHeaders()
+      .set('Authorization' , localStorage.getItem('authorization'));
+    return this.http.delete(this.apiRootUrl + '/job/' + jobId, {headers: headers})
+      .catch(this.defaultErrorHandler());
+  }
+
+  pushJob(jobId: number, studentId: number) {
+    const headers = new HttpHeaders()
+      .set('Authorization' , localStorage.getItem('authorization'));
+    return this.http.post(this.apiRootUrl + '/companypush/student/' + studentId + '/job/' + jobId, 123, {headers: headers});
+  }
+
+  comfirmForward(studentId: number, jobId: number) {
+    const headers = new HttpHeaders()
+      .set('Authorization' , localStorage.getItem('authorization'));
+    return this.http.put(this.apiRootUrl + '/friendforward/sender/' + studentId + '/receiver/' + localStorage.getItem('id') +
+      '/job/' + jobId + '/status/1', 123, {headers: headers});
+  }
+
+  requestRes(jobId: number, reps: number) {
+    const headers = new HttpHeaders()
+      .set('Authorization' , localStorage.getItem('authorization'));
+    return this.http.put(this.apiRootUrl + '/companypush/student/' + localStorage.getItem('id') + '/job/' + jobId
+      + '/status/' + reps ,  123 , {headers: headers})
+      .catch(this.defaultErrorHandler());
+  }
+
+  forwardJob(jobId: number, studentId: number) {
+    const headers = new HttpHeaders()
+      .set('Authorization' , localStorage.getItem('authorization'));
+    return this.http.post(this.apiRootUrl + '/friendforward/sender/' + localStorage.getItem('id') + '/receiver/' + studentId
+      + '/job/' + jobId, 123, {headers: headers});
   }
 
   private defaultErrorHandler() {

@@ -1,0 +1,86 @@
+
+  <form *ngIf="!posted" class="ui form" (ngSubmit)="onSubmit()" #registerForm = "ngForm">
+    <h2 class="ui dividing header">Job Information</h2>
+    <div class="field">
+      <div class="two fields">
+
+        <div class="field">
+          <label for="name">Job Name</label>
+          <input type="text" name="name"  id="name" placeholder="Job Name" [(ngModel)]="newJob.name" ngControl="name" required>
+        </div>
+
+        <div class="field">
+          <label for="location">Location</label>
+          <input type="text" name="location"id="location" placeholder="e.g. New York City, NY" [(ngModel)]="newJob.location" ngControl="location" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+    <div class="two fields">
+      <div class="field">
+        <label for="title">Title</label>
+        <input type="text" name="title"  id="title" placeholder="e.g. Junior" [(ngModel)]="newJob.title" ngControl="title" required>
+      </div>
+
+
+      <div class="field">
+        <label for="salary">Salary</label>
+        <input type="number" name="salary"  id="salary" placeholder="Salary" [(ngModel)]="newJob.salary" ngControl="salary" required>
+      </div>
+    </div>
+  </div>
+
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <label for="diploma">Diploma</label>
+          <input type="text" name="diploma"  id="diploma" placeholder="e.g. Master" [(ngModel)]="newJob.diploma" ngControl="diploma" required>
+        </div>
+
+
+        <div class="field">
+          <label for="major">Major</label>
+          <input type="text" name="major"  id="major" placeholder="e.g. Computer Science" [(ngModel)]="newJob.major" ngControl="major" required>
+        </div>
+      </div>
+    </div>
+
+    <label for="description">Description</label>
+    <div class="field">
+      <textarea type="text" id="description" name="description" placeholder="Type your description here" [(ngModel)]="newJob.description" required></textarea>
+    </div>
+
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <label for="due_time">Due Time</label>
+          <input type="date" name="due_time"  id="due_time"  [(ngModel)]="newJob.due_time" ngControl="diploma" required>
+        </div>
+
+
+        <div class="field">
+          <label for="status">Status</label>
+          <select class="ui dropdown" id="status" name="status" [(ngModel)]="newJob.status" required>
+            <option value="Open">Open</option>
+            <option value="Close">Close</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+
+
+    <br>
+    <button type="submit" class="ui button left" [disabled]="!registerForm.form.valid" >Post</button>
+
+    <br>
+    <br>
+  </form>
+
+  <div *ngIf="posted">
+    <div class="ui success message">
+      <div class="header">Post Completed</div>
+      <p>You've posted a new job!</p>
+    </div>
+  </div>

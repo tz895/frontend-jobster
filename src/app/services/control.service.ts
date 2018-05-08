@@ -30,6 +30,18 @@ export class ControlService {
     this.sidePanelControl = '5';
   }
 
+  postedJobs() {
+    this.sidePanelControl = '6';
+  }
+
+  postJob() {
+    this.sidePanelControl = '7';
+  }
+
+  searchCandidate() {
+    this.sidePanelControl = '8';
+  }
+
   getControl() {
     return this.sidePanelControl;
   }
